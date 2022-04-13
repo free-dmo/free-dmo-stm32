@@ -1,8 +1,8 @@
-GCC_PATH = ./gcc-arm-none-eabi-10.3-2021.07/bin
+#GCC_PATH = ./gcc-arm-none-eabi-10.3-2021.07/bin
 BUILD_DIR = build
 TARGET = freedmo
 #DEBUG = 1
-OPT = -Os
+OPT = -std=c99 -Wall -Os -DDMO_SKU_$(DMO_SKU)
 
 ######################################
 # source

@@ -2,6 +2,8 @@
 
 Endless freedom for D.MO 550 series label writer printer.
 
+[![Release](https://img.shields.io/github/release/free-dmo/free-dmo-stm32.svg?maxAge=60)](https://github.com/free-dmo/free-dmo-stm32/releases/latest) <== Click here to download
+
 ## Wiring
 
 Components needed:
@@ -51,8 +53,9 @@ Option 2: Install required ARM toolchain GNU Arm Embedded Toolchain from ARM:
 
 Option 3: Use the precompiled firmware 
 
- * a precompiled firmware binary is available in the `COMPILED_FIRMWARE` folder
-
+ * a precompiled firmware binaries are available here: [Download](https://github.com/free-dmo/free-dmo-stm32/releases/latest)
+ 
+   You can choose one of the firmwares which has a default SKU for emulation (used when no real RFID tag is present)
 
 ## Download the firmware to the STM32F103 bluepill board
 
@@ -107,9 +110,9 @@ You can choose from the list of included label data by selecting the SKU: <br/>
 file: `Src/main.c`
 
 ~~~ C
-#define DMO_SKU  S0722430 // 54 x 101 mm, 220 pcs.
-//#define DMO_SKU  S0722550 // 19 x  51 mm, 500 pcs.
-//#define DMO_SKU  S0722400 // 36 x  89 mm, 50 pcs.
+#define DMO_SKU_S0722430 // 54 x 101 mm, 220 pcs.
+//#define DMO_SKU_S0722550 // 19 x  51 mm, 500 pcs.
+//#define DMO_SKU_S0722400 // 36 x  89 mm, 50 pcs.
 ~~~
 
 Happy printing... 😈
