@@ -15,6 +15,7 @@ build_sku S0722400
 build_sku 1744907
 build_sku 30857
 build_sku 30336
+build_sku 30332
 
 DATE=$(date +'%Y%m%d')
 GIT=$(git describe --tags --abbrev=0)
