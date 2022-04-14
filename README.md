@@ -9,7 +9,8 @@ Endless freedom for D.MO 550 series label writer printer.
 Components needed:
 
  * 1 × STM32F103 bluepill<br/>
-   search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`
+   search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
+   ::ATTENTION:: Make sure your blue pill is using the correct STM32F103C8T6. Some places sell blue pills with STM32F103C6T6 which are not compatible.
  
  * 2 × cable<br/>
    search for: `6 pin 1.25 mm` / `6pin 1.25mm Wire To Board Connector` / `JST ZH 6pin`
