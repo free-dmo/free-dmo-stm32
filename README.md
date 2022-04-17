@@ -86,7 +86,7 @@ The project comes with the CubeMX .ioc file which can be used to modify pins and
 After startup of the printer a default tag emulation is used which can be defined in the firmware.
 The emulation will count down correctly until the end of the roll is reached. A power cycle / sleep+wakeup of the printer is enough to reset the emulated tag counter back to it's maximum.
 
-If the original RFID board is also connected and a spool with D.MO RFID tag is found then the emulation data is updated with the data from this RFID tag. Just the counter will be emulated in this case. This enables the use of any D.MO format unless you have at least one original spool (you can peel the RFID label of that role and attach it to the inside of the printer).
+If the original RFID board is also connected and a spool with D.MO RFID tag is found then the emulation data is updated with the data from this RFID tag. Just the counter will be emulated in this case.  The tag that is detected and emulated upon powerup is the only label that will be recognized in the printer until another power cycle. This enables the use of any D.MO format unless you have at least one original spool (you can peel the RFID label of that role and attach it to the inside of the printer).  If you change genuine labels (with RFID tag) then you will need to power cycle the printer to detect the new label.
 
 **Please consider dumping this data and providing it here for others** (see: https://github.com/free-dmo/free-dmo-tag-dump).
 
