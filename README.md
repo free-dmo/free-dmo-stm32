@@ -12,6 +12,9 @@ Components needed:
    search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
    ::ATTENTION:: Make sure your blue pill is using the correct STM32F103C8T6. Some places sell blue pills with STM32F103C6T6 which are not compatible.
  
+ * 1 x RFID board with a CLRC663 RFID IC, used in I2C mode, and an RFID antenna.<br/>
+   The NXP datasheet of CLRC663 has all the details: https://www.nxp.com/docs/en/data-sheet/CLRC663.pdf
+
  * 2 × cable<br/>
    search for: `6 pin 1.25 mm` / `6pin 1.25mm Wire To Board Connector` / `JST GH 6pin`
  
