@@ -20,6 +20,7 @@ build_sku 30256
 build_sku 30252
 build_sku S0722540
 build_sku S0904980
+build_sku 30374
 
 
 DATE=$(date +'%Y%m%d')
