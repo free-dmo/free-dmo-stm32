@@ -12,8 +12,9 @@ Components needed:
    search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
    **::ATTENTION::** Make sure your blue pill is using the correct STM32F103C**8**T6. Some places sell blue pills with STM32F103C**6**T6 which are not compatible.
 
- * 1 or 2 × 6-pin JST Molex PicoBlade cable (connector only on one end)<br/>
-   search for: `6 pin Molex PicoBlade 1.25 mm` / `6pin 1.25mm MX Wire To Board Connector` / `JST MX 6pin`
+ * 1 × 6-pin JST Molex PicoBlade cable<br/>
+   search for: `6 pin Molex PicoBlade 1.25 mm` / `6pin 1.25mm MX Wire To Board Connector` / `JST MX 6pin`<br />
+   You will need to cut this cable in half, with a connector on each side and loose ends on the other. If your cable is short, you may want to get two cables instead.
 
  * 2 × resistor `4.7kΩ`
 
