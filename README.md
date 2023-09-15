@@ -73,6 +73,7 @@ A `freedmo.bin` file will be created in the `build` folder.
      1. Connect all pins to their corresponding counterparts (3.3V to 3.3V, etc.) between the bluepill and ST-LINK
         - Note: "SWIO" and "SWDIO" are the same pin
      2. Connect the ST-LINK to your computer
+        - If you haven't yet, it is highly recommended to update the ST-LINK's firmware to reduce potential issues
    - A UART adapter (serial download)
      1. From the UART adapter to the bluepill, [connect VCC to 5V, GND to GND, TX0 to A10, and RX1 to A9](https://www.electronicshub.org/wp-content/uploads/2020/02/Connections-for-Programming-STM32.jpg)
      2. Connect the UART adapter to your computer
