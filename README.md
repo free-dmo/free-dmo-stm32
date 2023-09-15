@@ -92,6 +92,10 @@ Note: you cannot program the bluepill using the Micro USB port.
 
 Happy printing... 😈
 
+## Usage
+
+The bluepill will emulate the RFID tag of a D.MO label roll if an RFID tag is not already detected, including counting down the remaining labels.  To reset the remaining label count, simply power cycle the printer.
+
 ## Troubleshooting
 
 ### I can't program the board with the Micro USB port, what do I do?
