@@ -10,9 +10,11 @@ build_sku () {
 }
 
 build_sku S0722430
+build_sku S0722530
 build_sku S0722550
 build_sku S0722400
 build_sku 1744907
+build_sku 11353
 build_sku 30857
 build_sku 30336
 build_sku 30332
