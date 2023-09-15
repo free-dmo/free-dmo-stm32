@@ -8,16 +8,16 @@ Endless freedom for D.MO 550 series label writer printer.
 
 Components needed:
 
- * 1 × STM32F103 bluepill<br/>
+ * 1 × STM32F103C8T6 bluepill<br/>
    search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
-   ::ATTENTION:: Make sure your blue pill is using the correct STM32F103C8T6. Some places sell blue pills with STM32F103C6T6 which are not compatible.
- 
+   **::ATTENTION::** Make sure your blue pill is using the correct STM32F103C**8**T6. Some places sell blue pills with STM32F103C**6**T6 which are not compatible.
+
  * 2 × cable<br/>
    search for: `6 pin 1.25 mm` / `6pin 1.25mm Wire To Board Connector` / `JST GH 6pin`
- 
+
  * 2 × resistor `4.7kΩ`
- 
- 
+
+
 ## Assembly
 
 **→ Make sure that the cables are connected correctly.**<br/>
@@ -55,7 +55,7 @@ Option 2: Install required ARM toolchain GNU Arm Embedded Toolchain from ARM:
 Option 3: Use the precompiled firmware 
 
  * a precompiled firmware binaries are available here: [Download](https://github.com/free-dmo/free-dmo-stm32/releases/latest)
- 
+
    You can choose one of the firmwares which has a default SKU for emulation (used when no real RFID tag is present)
 
 ## Download the firmware to the STM32F103 bluepill board
