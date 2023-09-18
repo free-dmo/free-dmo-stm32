@@ -2,7 +2,7 @@
 
 Endless freedom for D.MO 550 series label writer printer.
 
-[![Release](https://img.shields.io/github/release/free-dmo/free-dmo-stm32.svg?maxAge=60)](https://github.com/free-dmo/free-dmo-stm32/releases/latest) <== Click here to download
+[![Release](https://img.shields.io/github/release/queengooborg/free-dmo-stm32.svg?maxAge=60)](https://github.com/queengooborg/free-dmo-stm32/releases/latest) <== Click here to download
 
 **Please consider dumping RFID tag data and providing it here for others** (see: https://github.com/free-dmo/free-dmo-tag-dump).
 
