@@ -50,27 +50,27 @@ static void MX_I2C2_Init(void);
 //
 
 //choose between one of the dumped SKU (roll types) for emulation
-//#define DMO_SKU_11353     //  13 mm x  25 mm /    0.5 in x      1 in / 1000 pcs.
-//#define DMO_SKU_30252     //  28 mm x  89 mm /  1.125 in x    3.5 in /  350 pcs.
-//#define DMO_SKU_30256     //  59 mm x 104 mm / 2.3125 in x      4 in /  300 pcs.
-//#define DMO_SKU_30327     //  14 mm x  87 mm / 0.5625 in x 3.4375 in /  130 pcs.
-//#define DMO_SKU_30332     //  25 mm x  25 mm /      1 in x      1 in /  750 pcs.
-//#define DMO_SKU_30334     //  57 mm x  32 mm /   2.25 in x   1.25 in / 1000 pcs.
-//#define DMO_SKU_30336     //  25 mm x  51 mm /      1 in x  2.125 in /  500 pcs.
-//#define DMO_SKU_30374     //  51 mm x  89 mm /      2 in x    3.5 in /  300 pcs.
-//#define DMO_SKU_30572     //  28 mm x  89 mm /  1.125 in x    3.5 in /  260 pcs.
-//#define DMO_SKU_30573     //  54 mm x 104 mm /  2.125 in x      4 in /  220 pcs.
-//#define DMO_SKU_30578     //  19 mm x  51 mm /   0.75 in x      2 in /  500 pcs.
-//#define DMO_SKU_30857     //  57 mm x 104 mm /   2.25 in x      4 in /  250 pcs.
-//#define DMO_SKU_1738541   //  25 mm x  54 mm /      1 in x  2.125 in /  500 pcs.
-//#define DMO_SKU_1744907   // 102 mm x 152 mm /      4 in x      6 in /  220 pcs.
-//#define DMO_SKU_1760756   //  57 mm x 104 mm /   2.25 in x      4 in /  250 pcs.
-//#define DMO_SKU_S0722400  //  36 mm x  89 mm /    1.4 in x    3.5 in /   50 pcs.
-//#define DMO_SKU_S0722430  //  54 mm x 101 mm /  2.125 in x      4 in /  220 pcs.
-//#define DMO_SKU_S0722530  //  13 mm x  25 mm /    0.5 in x      1 in / 1000 pcs.
-//#define DMO_SKU_S0722540  //  57 mm x  32 mm /   1.25 in x   2.25 in / 1000 pcs.
-//#define DMO_SKU_S0722550  //  19 mm x  51 mm /   0.75 in x      2 in /  500 pcs.
-//#define DMO_SKU_S0904980  // 104 mm x 159 mm /      4 in x      6 in /  220 pcs.
+//#define DMO_SKU_11353     //  13 mm x  25 mm  /    0.5 in x      1 in  / 1000 pcs.
+//#define DMO_SKU_30252     //  28 mm x  89 mm  /  1.125 in x    3.5 in  /  350 pcs.
+//#define DMO_SKU_30256     //  59 mm x 104 mm  / 2.3125 in x      4 in  /  300 pcs.
+//#define DMO_SKU_30327     //  14 mm x  87 mm  / 0.5625 in x 3.4375 in  /  130 pcs.
+//#define DMO_SKU_30332     //  25 mm x  25 mm  /      1 in x      1 in  /  750 pcs.
+//#define DMO_SKU_30334     //  57 mm x  32 mm  /   2.25 in x   1.25 in  / 1000 pcs.
+//#define DMO_SKU_30336     //  25 mm x  51 mm  /      1 in x  2.125 in  /  500 pcs.
+//#define DMO_SKU_30374     //  51 mm x  89 mm  /      2 in x    3.5 in  /  300 pcs.
+//#define DMO_SKU_30572     //  28 mm x  89 mm  /  1.125 in x    3.5 in  /  260 pcs.
+//#define DMO_SKU_30573     //  54 mm x 104 mm  /  2.125 in x      4 in  /  220 pcs.
+//#define DMO_SKU_30578     //  19 mm x  51 mm  /   0.75 in x      2 in  /  500 pcs.
+//#define DMO_SKU_30857     //  57 mm x 104 mm  /   2.25 in x      4 in  /  250 pcs.
+//#define DMO_SKU_1738541   //  25 mm x  54 mm  /      1 in x  2.125 in  /  500 pcs.
+//#define DMO_SKU_1744907   // 104 mm x 159 mm  /      4 in x      6 in  /  220 pcs.
+//#define DMO_SKU_1760756   //  57 mm x 104 mm  /   2.25 in x      4 in  /  250 pcs.
+//#define DMO_SKU_S0722400  //  36 mm x  89 mm  /    1.4 in x    3.5 in  /   50 pcs.
+//#define DMO_SKU_S0722430  //  54 mm x 101 mm  /  2.125 in x      4 in  /  220 pcs.
+//#define DMO_SKU_S0722530  //  13 mm x  25 mm  /    0.5 in x      1 in  / 1000 pcs.
+//#define DMO_SKU_S0722540  //  57 mm x  32 mm  /   1.25 in x   2.25 in  / 1000 pcs.
+//#define DMO_SKU_S0722550  //  19 mm x  51 mm  /   0.75 in x      2 in  /  500 pcs.
+//#define DMO_SKU_S0904980  // 104 mm x 159 mm  /      4 in x      6 in  /  220 pcs.
 
 //choose one of the dumped original tags for UID + signature emulation. It does not have to match the dumped data
 #define SLIX2_TAG_EMU 1  // 1-12
