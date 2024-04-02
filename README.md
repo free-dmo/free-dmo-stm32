@@ -8,20 +8,31 @@ Endless freedom for D.MO 550 series label writer printer.
 
 ## Setup
 
+This mod requires basic knowledge of microprocessors, electronics and soldering. Do not proceed if you do not know what you're doing. This project and its authors/contributors are not liable for any damage or injury; perform this mod at your own risk.
+
+### Required tools
+
+- 1× Philips 00 screwdriver
+
+- 1× ST-LINK V2 or UART Adapter<br>
+  Required to program the bluepill, as it cannot be programmed from the Micro USB port.
+
 ### Required parts
 
-- 1 x D.MO 550 series label printer
+- 1× D.MO 550 series label printer<br />
+  Tested on 550, 550 Turbo and 5XL.
 
-- 1 × STM32F103C8T6 bluepill<br/>
+- 1× STM32F103C8T6 bluepill<br/>
   search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
-  **::ATTENTION::** Make sure your blue pill is using the correct STM32F103C**8**T6. Some places sell blue pills with STM32F103C**6**T6 which are not compatible.
+  Make sure your bluepill is a STM32F103C**8**T6, not a STM32F103C**6**T6.
+  **ATTENTION:** Many vendors sell [counterfeit bluepills](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes). Counterfeits may not function properly or at all.
 
-- 1 × 6-pin Molex PicoBlade cable<br/>
+- 1× 6-pin Molex PicoBlade cable<br/>
   search for: `6 pin Molex PicoBlade 1.25 mm` / `6pin 1.25mm MX Wire To Board Connector` / `JST MX 6pin`<br />
   You will need to cut this cable in half, with a connector on each side and loose ends on the other. If your cable is short, you may want to get two cables instead.
 
-- 2 × resistor `4.7kΩ`<br />
-  Optional, not required if you do not care about reading real RFID tags
+- 2× `4.7kΩ` resistor<br />
+  Optional, not required if you do not care about reading real RFID tags.
 
 ### Assembly
 
@@ -91,8 +102,6 @@ A `freedmo.bin` file will be created in the `build` folder.
 10. Once programming is complete, click `Disconnect` in the top-right corner and disconnect your programming module from both your computer and the bluepill
 11. Switch your bluepill back to normal mode by [switching the BOOT0 jumper back to 0](ASSEMBLY_PICTURES/dfu.jpg)
 
-Note: you cannot program the bluepill using the Micro USB port.
-
 Happy printing... 😈
 
 ## Usage
@@ -113,9 +122,11 @@ Double-check your connections between the bluepill and the mainboard. You may ha
 
 Double-check your connections between the bluepill and the RFID board. Also, make sure your two resistors are installed properly and their pins aren't touching.
 
+Note: you should also double-check if you have an [authentic STM32F103 bluepill](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes).
+
 ## Technical info
 
-## D.MO RFID tag emulation
+### D.MO RFID tag emulation
 
 After startup of the printer a default tag emulation is used which can be defined in the firmware.
 The emulation will count down correctly until the end of the roll is reached. A power cycle / sleep+wakeup of the printer is enough to reset the emulated tag counter back to it's maximum.
