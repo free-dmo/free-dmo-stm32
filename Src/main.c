@@ -43,6 +43,7 @@ static void MX_I2C2_Init(void);
 #define SLIX2_BLOCKS         80
 #define SLIX2_INVENTORY_LEN   9
 #define SLIX2_SYSINFO_LEN    14
+#define SLIX2_NXPSYSINFO_LEN  7
 #define SLIX2_SIGNATURE_LEN  32
 
 /////////////////////////////////////////////////////////
@@ -115,6 +116,8 @@ static const uint8_t DMO_TAG_SLIX2_INVENTORY[SLIX2_INVENTORY_LEN] = {0x01,0x49,0
 static const uint8_t DMO_TAG_SLIX2_SYSINFO[SLIX2_SYSINFO_LEN]     = {0x0F,0x49,0x4E,0xB1,0x44,0x08,0x01,0x04,0xE0,0x01,0x3D,0x4F,0x03,0x01};
 static const uint8_t DMO_TAG_SLIX2_SIGNATURE[SLIX2_SIGNATURE_LEN] = {0x9C,0x42,0x9E,0x45,0x08,0xEF,0xA2,0xA5,0xF0,0x05,0xFC,0x86,0x27,0x37,0x98,0xF5,0xA5,0x9F,0xA2,0x87,0x20,0x9B,0x15,0x09,0x83,0x42,0x8E,0x64,0x3C,0x7A,0xC9,0xB9};
 #endif
+
+static const uint8_t DMO_TAG_SLIX2_NXPSYSINFO[SLIX2_NXPSYSINFO_LEN] = {0x32,0x02,0x0F,0x7F,0x35,0x00,0x00};
 
 #if defined (DMO_SKU_S0722430)
 static const uint8_t DMO_TAG_SLIX2_BLOCKS[SLIX2_BLOCKS*sizeof(uint32_t)] = { //S0722430 54 x 101 mm, 220 pcs.
@@ -378,23 +381,29 @@ void CLRC688_DeInit(I2C_HandleTypeDef* phi2c) {
   HAL_GPIO_WritePin(OUT_PWDN_READER_GPIO_Port, OUT_PWDN_READER_Pin, GPIO_PIN_SET);
 }
 
-bool CLRC688_ReadOutSLIX2(I2C_HandleTypeDef* phi2c, const uint8_t addr, uint8_t inventory[SLIX2_INVENTORY_LEN], uint8_t sysinfo[SLIX2_SYSINFO_LEN], uint8_t signature[SLIX2_SIGNATURE_LEN], uint32_t blocks[SLIX2_BLOCKS]) {
+bool CLRC688_ReadOutSLIX2(I2C_HandleTypeDef* phi2c, const uint8_t addr, uint8_t inventory[SLIX2_INVENTORY_LEN], uint8_t sysinfo[SLIX2_SYSINFO_LEN], uint8_t nxpsysinfo[SLIX2_NXPSYSINFO_LEN], uint8_t signature[SLIX2_SIGNATURE_LEN], uint32_t blocks[SLIX2_BLOCKS]) {
   static const uint8_t inventorycmd[] = {0x36,0x01,0x00,0x00};
   uint8_t inventorylen = SLIX2_INVENTORY_LEN;
-  if( !CLRC688_Transceive(phi2c, addr, inventorycmd, sizeof(inventorycmd), inventory, &inventorylen) || (inventorylen<9) ) {
+  if( !CLRC688_Transceive(phi2c, addr, inventorycmd, sizeof(inventorycmd), inventory, &inventorylen) || (inventorylen<SLIX2_INVENTORY_LEN) ) {
     return false;
   }  
   uint8_t uid[] = {inventory[1],inventory[2],inventory[3],inventory[4],inventory[5],inventory[6],inventory[7],inventory[8]};
 
   uint8_t sysinfocmd[] = {0x22,0x2B,uid[0],uid[1],uid[2],uid[3],uid[4],uid[5],uid[6],uid[7]};
   uint8_t sysinfolen = SLIX2_SYSINFO_LEN;
-  if( !CLRC688_Transceive(phi2c, addr, sysinfocmd, sizeof(sysinfocmd), sysinfo, &sysinfolen) || (sysinfolen<14)) {
+  if( !CLRC688_Transceive(phi2c, addr, sysinfocmd, sizeof(sysinfocmd), sysinfo, &sysinfolen) || (sysinfolen<SLIX2_SYSINFO_LEN)) {
+    return false;
+  }  
+
+  uint8_t nxpsysinfocmd[] = {0x22,0xAB,uid[0],uid[1],uid[2],uid[3],uid[4],uid[5],uid[6],uid[7]};
+  uint8_t nxpsysinfolen = SLIX2_NXPSYSINFO_LEN;
+  if( !CLRC688_Transceive(phi2c, addr, nxpsysinfocmd, sizeof(nxpsysinfocmd), nxpsysinfo, &nxpsysinfolen) || (nxpsysinfolen<SLIX2_NXPSYSINFO_LEN)) {
     return false;
   }  
 
   uint8_t signaturecmd[] = {0x22,0xBD,0x04,uid[0],uid[1],uid[2],uid[3],uid[4],uid[5],uid[6],uid[7]};
   uint8_t signaturelen = SLIX2_SIGNATURE_LEN;
-  if( !CLRC688_Transceive(phi2c, addr, signaturecmd, sizeof(signaturecmd), signature, &signaturelen) || (signaturelen<32)) {
+  if( !CLRC688_Transceive(phi2c, addr, signaturecmd, sizeof(signaturecmd), signature, &signaturelen) || (signaturelen<SLIX2_SIGNATURE_LEN)) {
     return false;
   }  
 
@@ -423,6 +432,7 @@ bool CLRC688_CheckPresense(I2C_HandleTypeDef* phi2c, const uint8_t addr, uint8_t
 
 static uint8_t  EMU_SLIX2_INVENTORY[SLIX2_INVENTORY_LEN];
 static uint8_t  EMU_SLIX2_SYSINFO[SLIX2_SYSINFO_LEN];
+static uint8_t  EMU_SLIX2_NXPSYSINFO[SLIX2_NXPSYSINFO_LEN];
 static uint8_t  EMU_SLIX2_SIGNATURE[SLIX2_SIGNATURE_LEN];
 static uint32_t EMU_SLIX2_BLOCKS[SLIX2_BLOCKS];
 static uint16_t EMU_SLIX2_COUNTER;
@@ -488,6 +498,7 @@ void EMU_SLIX2_Communication(const uint8_t* pindata, const uint8_t inlength, uin
       break;
     }
     case 0x2B: poutdata[0]=0; memcpy(poutdata+1, EMU_SLIX2_SYSINFO, SLIX2_SYSINFO_LEN); *poutlength=1+SLIX2_SYSINFO_LEN; break;                          //sysinfo
+    case 0xAB: poutdata[0]=0; memcpy(poutdata+1, EMU_SLIX2_NXPSYSINFO, SLIX2_NXPSYSINFO_LEN); *poutlength=1+SLIX2_NXPSYSINFO_LEN; break;                 //nxp sysinfo
     case 0xB2: poutdata[0]=0; poutdata[1]=HAL_GetTick(); poutdata[2]=HAL_GetTick()>>8; *poutlength=3; break;                                             //random
     case 0xB3: poutdata[0]=0; *poutlength=1; break;                                                                                                      //set password => just signal success
     case 0xBD: poutdata[0]=0; memcpy(poutdata+1, EMU_SLIX2_SIGNATURE, SLIX2_SIGNATURE_LEN); *poutlength=1+SLIX2_SIGNATURE_LEN; break;                    //signature
@@ -566,25 +577,28 @@ void EMU_CLRC688_Communication(const uint8_t* pindata, const uint8_t inlength, u
 
 void InitEmulationWithDefaultData(void) {
   //copy default tag data
-  memcpy(EMU_SLIX2_INVENTORY, DMO_TAG_SLIX2_INVENTORY, SLIX2_INVENTORY_LEN); 
-  memcpy(EMU_SLIX2_SYSINFO,   DMO_TAG_SLIX2_SYSINFO, SLIX2_SYSINFO_LEN); 
-  memcpy(EMU_SLIX2_SIGNATURE, DMO_TAG_SLIX2_SIGNATURE, SLIX2_SIGNATURE_LEN); 
-  memcpy(EMU_SLIX2_BLOCKS,    DMO_TAG_SLIX2_BLOCKS, SLIX2_BLOCKS*sizeof(uint32_t));
+  memcpy(EMU_SLIX2_INVENTORY,  DMO_TAG_SLIX2_INVENTORY, SLIX2_INVENTORY_LEN); 
+  memcpy(EMU_SLIX2_SYSINFO,    DMO_TAG_SLIX2_SYSINFO, SLIX2_SYSINFO_LEN); 
+  memcpy(EMU_SLIX2_NXPSYSINFO, DMO_TAG_SLIX2_NXPSYSINFO, SLIX2_NXPSYSINFO_LEN); 
+  memcpy(EMU_SLIX2_SIGNATURE,  DMO_TAG_SLIX2_SIGNATURE, SLIX2_SIGNATURE_LEN); 
+  memcpy(EMU_SLIX2_BLOCKS,     DMO_TAG_SLIX2_BLOCKS, SLIX2_BLOCKS*sizeof(uint32_t));
 }
 
 void UpdateEmulationDataFromRealTag(void) {
   //read data from tag and copy to emulation buffer
   if( CLRC688_Init(&hi2c2, CLRC688_ADDR) ) {
-    uint8_t inventory[9];
-    uint8_t sysinfo[32];
-    uint8_t signature[32];
+    uint8_t inventory[SLIX2_INVENTORY_LEN];
+    uint8_t sysinfo[SLIX2_SYSINFO_LEN];
+    uint8_t nxpsysinfo[SLIX2_NXPSYSINFO_LEN];
+    uint8_t signature[SLIX2_SIGNATURE_LEN];
     uint32_t blocks[80];
-    if( CLRC688_ReadOutSLIX2(&hi2c2, CLRC688_ADDR, inventory, sysinfo, signature, blocks) ) {
+    if( CLRC688_ReadOutSLIX2(&hi2c2, CLRC688_ADDR, inventory, sysinfo, nxpsysinfo, signature, blocks) ) {
       //check for DMO prefix and DMO magic
       if( (0xed820a03==blocks[0]) && (0xd2613986==blocks[1]) && (0x321e1403==blocks[2]) && (0x3c00cab6==blocks[3]) ) {
         //copy tag data to emulation and set counter to maximum
         memcpy(EMU_SLIX2_INVENTORY, inventory, SLIX2_INVENTORY_LEN);
         memcpy(EMU_SLIX2_SYSINFO, sysinfo, SLIX2_SYSINFO_LEN); 
+        memcpy(EMU_SLIX2_NXPSYSINFO, nxpsysinfo, SLIX2_NXPSYSINFO_LEN); 
         memcpy(EMU_SLIX2_SIGNATURE, signature, SLIX2_SIGNATURE_LEN); 
         memcpy(EMU_SLIX2_BLOCKS, blocks, SLIX2_BLOCKS*sizeof(uint32_t));
         //simulate tag removal so new content will be fetched
