@@ -58,7 +58,7 @@ There are three ways to obtain the firmware you will be flashing onto your bluep
 
 #### Use the precompiled firmware
 
-Precompiled firmware binaries are available here: [Download](https://github.com/free-dmo/free-dmo-stm32/releases/latest)
+Precompiled firmware binaries are available here: [Download](https://github.com/queengooborg/free-dmo-stm32/releases/latest)
 
 You can choose one of the firmwares which has a default SKU for emulation (used when no real RFID tag is present).
 
