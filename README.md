@@ -54,7 +54,7 @@ Connection to main board:
 
 ### Obtain the firmware
 
-There are three ways to obtain the firmware you will be flashing onto your bluepill:
+There are two ways to obtain the firmware you will be flashing onto your bluepill:
 
 #### Use the precompiled firmware
 
