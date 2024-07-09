@@ -10,6 +10,7 @@ build_sku () {
 }
 
 build_sku 11353
+build_sku 11356
 build_sku 30252
 build_sku 30256
 build_sku 30270
@@ -48,6 +49,7 @@ build_sku 2133383
 build_sku S0722400
 build_sku S0722430
 build_sku S0722530
+build_sku S0722560
 build_sku S0722540
 build_sku S0722550
 build_sku S0904980
