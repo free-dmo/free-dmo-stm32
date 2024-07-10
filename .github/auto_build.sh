@@ -17,6 +17,7 @@ build_sku 30270
 build_sku 30299
 build_sku 30323
 build_sku 30321
+build_sku 30324
 build_sku 30326
 build_sku 30327
 build_sku 30332
