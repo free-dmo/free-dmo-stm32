@@ -8,13 +8,13 @@ Endless freedom for D.MO 550 series label writer printer.
 
 ## Setup
 
-This mod requires basic knowledge of microprocessors, electronics and soldering. Do not proceed if you do not know what you're doing. This project and its authors/contributors are not liable for any damage or injury; perform this mod at your own risk.
+This mod requires basic knowledge of microprocessors, electronics and soldering. If you do not meet these requirements, do not proceed. This project and its authors/contributors are not liable for any damage or injury; perform this mod at your own risk.
 
 ### Required tools
 
-- 1× Philips 00 screwdriver
-
-- 1× ST-LINK V2 or UART Adapter<br>
+- Philips 00 screwdriver
+- Soldering station (soldering iron, spool of solder, solder wick, soldering mat)
+- Either: ST-LINK V2 or UART Adapter<br>
   Required to program the bluepill, as it cannot be programmed from the Micro USB port.
 
 ### Required parts
@@ -36,6 +36,10 @@ This mod requires basic knowledge of microprocessors, electronics and soldering.
 
 ### Assembly
 
+First, take the Molex PicoBlade cables.  If you have ordered a kit and the ends are not already attached, do so now.
+
+Next, cut the cables in half and strip the loose ends so that they may be soldered to the Bluepill.
+
 **→ Make sure that the cables are connected correctly.**<br/>
 In the photos below, the left cables go to the RFID board, the right cables go to the main board of the label printer.
 
@@ -54,7 +58,7 @@ Connection to main board:
 
 ### Obtain the firmware
 
-There are two ways to obtain the firmware you will be flashing onto your bluepill:
+There are two ways to obtain the firmware you will be flashing onto your Bluepill:
 
 #### Use the precompiled firmware
 
@@ -112,17 +116,17 @@ The bluepill will emulate the RFID tag of a D.MO label roll if an RFID tag is no
 
 ### I can't program the board with the Micro USB port, what do I do?
 
-Unfortunately, you cannot program the bluepill with its Micro USB port. You will have to use an ST-LINK v2 or a UART adapter.
+Unfortunately, you cannot program the Bluepill with its Micro USB port. You will have to use an ST-LINK v2 or a UART adapter.
 
 ### I've assembled my printer but it won't print because "unknown labels are loaded".
 
-Double-check your connections between the bluepill and the mainboard. You may have a loose connection which is preventing the bluepill and mainboard from connecting to each other. If it is still not working, check for solder bridges between the pins.
+Double-check your connections between the Bluepill and the mainboard. You may have a loose connection which is preventing the Bluepill and mainboard from communicationg with each other. Additionally, check for solder bridges between the pins.
 
 ### I can't read real RFID tags, I can only emulate them.
 
-Double-check your connections between the bluepill and the RFID board. Also, make sure your two resistors are installed properly and their pins aren't touching.
+Double-check your connections between the Bluepill and the RFID board. Also, make sure your two resistors are installed properly and their pins aren't touching.
 
-Note: you should also double-check if you have an [authentic STM32F103 bluepill](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes).
+Note: you should also double-check if you have an [authentic STM32F103 Bluepill](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes).
 
 ## Technical info
 
