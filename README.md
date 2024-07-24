@@ -76,7 +76,7 @@ To compile the firmware from source, perform the following steps:
    - Windows/macOS/Other Linux:
      - https://developer.arm.com/downloads/-/gnu-rm
      - Open the Makefile and modify the first line `GCC_PATH` to point to the GNU ARM embedded toolchain `bin` folder (e.g. `GCC_PATH = ../gcc-arm-none-eabi-10.3-2021.07/bin`)
-2. Run `make` to compile the firmware
+2. Run `make DMO_SKU={Desired SKU to compile}` to compile the firmware
 
 A `freedmo.bin` file will be created in the `build` folder.
 
