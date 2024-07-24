@@ -47,6 +47,8 @@ build_sku 1933088
 build_sku 1976411
 build_sku 2133382
 build_sku 2133383
+build_sku S0722370
+build_sku S0722380
 build_sku S0722400
 build_sku S0722430
 build_sku S0722530
