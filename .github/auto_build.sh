@@ -34,6 +34,7 @@ build_sku 30573
 build_sku 30578
 build_sku 30856
 build_sku 30857
+build_sku 99018
 build_sku 1738541
 build_sku 1738595
 build_sku 1744907
@@ -51,6 +52,7 @@ build_sku S0722370
 build_sku S0722380
 build_sku S0722400
 build_sku S0722430
+build_sku S0722470
 build_sku S0722530
 build_sku S0722560
 build_sku S0722540
