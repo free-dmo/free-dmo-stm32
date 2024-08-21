@@ -10,6 +10,9 @@ Endless freedom for D.MO 550 series label writer printer.
 
 This mod requires basic knowledge of microprocessors, electronics and soldering. If you do not meet these requirements, do not proceed. This project and its authors/contributors are not liable for any damage or injury; perform this mod at your own risk.
 
+> [!NOTE]
+> This mod [may not work](https://www.reddit.com/r/dymo/comments/1dp6vfo/comment/lat0edf) on 550 series printers purchased after March 2024.
+
 ### Required tools
 
 - Philips 00 screwdriver
