@@ -23,7 +23,7 @@ This mod requires basic knowledge of microprocessors, electronics and soldering.
 ### Required parts
 
 - 1× D.MO 550 series label printer<br />
-  Tested on 550, 550 Turbo and 5XL.
+  Tested on 550 and 550 Turbo. 5XL is not yet tested.
 
 - 1× STM32F103C8T6 bluepill<br/>
   search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
