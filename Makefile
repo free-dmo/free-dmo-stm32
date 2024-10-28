@@ -5,6 +5,11 @@ TARGET = freedmo
 OPT = -std=c99 -Wall -Os -DDMO_SKU_$(DMO_SKU)
 
 ######################################
+# Check for SKU variable
+######################################
+$(if $(DMO_SKU),,$(error DMO_SKU environment variable must be defined))
+
+######################################
 # source
 ######################################
 # C sources
