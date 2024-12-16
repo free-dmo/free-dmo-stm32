@@ -773,7 +773,7 @@ bool CLRC688_Init(I2C_HandleTypeDef* phi2c, const uint8_t addr) {
       !CLRC688_WriteRegister(phi2c, addr, 0x32,0x00) ||   
       !CLRC688_WriteRegister(phi2c, addr, 0x29,0x10) ||   
       !CLRC688_WriteRegister(phi2c, addr, 0x28,0x81) ||   
-      !CLRC688_WriteRegister(phi2c, addr, 0x08,0x00) ||   
+      !CLRC688_WriteRegister(phi2c, addr, 0x0B,0x00) ||   
       !CLRC688_WriteRegister(phi2c, addr, 0x28,0x89) ||   
       !CLRC688_WriteRegister(phi2c, addr, 0x00,0x40) ||   
       !CLRC688_WriteRegister(phi2c, addr, 0x00,0x00) 
