@@ -803,7 +803,7 @@ bool CLRC688_ReadOutSLIX2(I2C_HandleTypeDef* phi2c, const uint8_t addr, uint8_t 
     return false;
   }  
 
-  uint8_t nxpsysinfocmd[] = {0x22,0xAB,uid[0],uid[1],uid[2],uid[3],uid[4],uid[5],uid[6],uid[7]};
+  uint8_t nxpsysinfocmd[] = {0x22,0xAB,0x04,uid[0],uid[1],uid[2],uid[3],uid[4],uid[5],uid[6],uid[7]};
   uint8_t nxpsysinfolen = SLIX2_NXPSYSINFO_LEN;
   if( !CLRC688_Transceive(phi2c, addr, nxpsysinfocmd, sizeof(nxpsysinfocmd), nxpsysinfo, &nxpsysinfolen) || (nxpsysinfolen<SLIX2_NXPSYSINFO_LEN)) {
     return false;
